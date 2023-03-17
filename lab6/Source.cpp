@@ -5,17 +5,15 @@
 
 
 int main()
-
-
 {
     int const row = 4, col = 4;
     int massivA[row], massivA1[row];
-    float massivB[row][col], massivB1[row], massivB2[row][col], massivC[row];
-    setlocale(0, "rus");
-    //Создание массива А
+    float massivB[row][col], massivB1[row], C = 0.0;
+    setlocale(LC_ALL, "rus");
+    /*Создание массива А*/
     for (int i = 0; i < row; i++)
     {
-        std::cout << "a[" << i + 1 << "]  ";
+        std::cout << "a[" << i + 1 << "]=";
         std::cin >> massivA[i];
     }
     /*Создание массива Б*/
@@ -66,7 +64,7 @@ int main()
     std::cout << std::endl;
 
 
-    //Вывод результатов
+   /* Вывод результатов*/
     std::cout << "Массив B";
     std::cout << "\n";
     for (int i = 0; i < row; i++)
@@ -78,7 +76,6 @@ int main()
         std::cout << "\n";
     }
 
-    std::cout << "\n";
 
     std::cout << "Массив B1 (Массив из главных диагоналей массива В)";
     std::cout << "\n";
@@ -100,18 +97,18 @@ int main()
                 massivB1[j - 1] = prom;
             }
         }
-        std::cout << massivB1[i] << std::setw(10); /*вывод массива B1*/
+        std::cout << massivB1[i] << std::setw(10); /*вывод массива B2*/
     }
     std::cout << std::endl;
 
-    std::cout << "Массив C(Результирующая матрица от перемножения матриц А1 и В2)" << std::endl;
+    std::cout << "Массив C(Результат от перемножения матриц А1 и В2)" << std::endl;
     for (int i = 0; i < row; i++)
     {
-        massivC[i] = massivA[i] * massivB1[i];
-        std::cout << massivC[i];
+        C += (massivA[i] * massivB1[i]);
 
-        std::cout << std::endl;
     }
+    std::cout << C;
+    std::cout << std::endl;
 
 
     system("pause");
